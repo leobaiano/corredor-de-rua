@@ -1,0 +1,105 @@
+/*
+//////////
+//CORREDOR DE RUA RESET
+////////////
+*/
+
+* {	margin: 0; padding: 0; }
+p, h1, h2, h3, h4, h5, h6, label, span { line-height: 100%; font-weight: normal; font-size: 1em; }
+ul li { list-style: none; }
+address { font-style: normal; }
+fieldset, img { border: none; }
+html, body { min-height: 100%; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+/*
+//////////
+//HEADERS
+////////////
+*/
+
+h1, h2, h3 {
+	margin-top: 20px;
+	font-family: arial, sans-serif;
+	color: #333;
+}
+h1 {
+	font-size: 2.4em;
+}
+h2 {
+	font-size: 1.8em;
+}
+h3 {
+	font-size: 1.6em;
+}
+
+/*
+//////////
+//TEXTOS
+////////////
+*/
+
+p, li {
+	margin-top: 10px;
+	font-family: arial, sans-serif;
+	font-size: 1.4em;
+	color: #666;
+	line-height: 140%;
+}
+li { 
+	list-style-position: inside;
+}
+strong {
+	color: #000;
+}
+li p,
+li li {
+	font-size: 1em;
+}
+li li {
+	margin-left: 20px;
+}
+
+/*
+//////////
+//LINKS
+////////////
+*/
+
+/*
+//////////
+//COMPONENTES
+////////////
+*/
+
+.linha-divisoria {
+	border: none;
+	background-color: #ccc;
+	opacity: .3;
+	display: block;
+	height: 5px;
+	margin: 20px 0;
+}
+
+/*
+//////////
+//ESTRUTURA GERAL
+////////////
+*/
+
+body {
+	font-size: 62.5%;
+}
+#documento {
+	padding: 5%;
+}
+	.bl-logo .logo {
+		font-size: 2.8em;
+		letter-spacing: -.1em;
+		text-transform: uppercase;
+	}
+	.bl-logo .complemento-logo {
+		margin-top: 0;
+		font-size: 1.3em;
+		text-transform: uppercase;
+	}
