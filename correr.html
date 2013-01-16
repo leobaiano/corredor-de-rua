@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Corredor de Rua</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
+	<style type="text/css">
+		html { height: 100%; }
+		body { height: 100%; margin: 0; padding: 0; }
+		#mapa { 
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			z-index: 10;
+		}
+		.bt {
+			position: absolute;
+			right: 5%;
+			bottom: 5%;
+			z-index: 20;
+		}
+		#finalizar {
+			display: none;
+		}
+	</style>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script>
+		var latitude = 0;
+		var longitude = 0;
+
+		function mapeia(posicao) {
+			latitude = posicao.coords.latitude;
+			longitude = posicao.coords.longitude;
+		}
+		window.navigator.geolocation.getCurrentPosition(mapeia);
+	</script>
+</head>
+<body>
+	<button class="bt bt-gerar-resultados" id="finalizar" onclick="finalizaCorrida()">Gerar Resultados</button>
+	<button class="bt bt-iniciar-corrida" id="iniciar" onclick="iniciaCorrida()">Iniciar Corrida</button>
+	<div id="mapa"></div>
+	<div id="dados"></div>
+	<script>
+		var gMapa = new google.maps.Map(document.getElementById("mapa"), {
+			zoom: 4,
+			center: new google.maps.LatLng(latitude,longitude),
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			navigationControl: false,
+			streetViewControl: false
+		});
+		var gMarcador = new google.maps.Marker({
+			position: new google.maps.LatLng(latitude,longitude),
+			map: gMapa
+		});
+
+		function iniciaCorrida() {
+			document.getElementById("finalizar").style.display = "block";
+			document.getElementById("iniciar").style.display = "none";			
+		}
+
+		function finalizaCorrida() {
+			var directionsService = new google.maps.DirectionsService();
+			var directionsDisplay = new google.maps.DirectionsRenderer();
+			directionsDisplay.setMap(gMapa);
+			directionsDisplay.setPanel(document.getElementById('dados'));
+			var request = {
+				origin: 'Chicago', 
+				destination: 'New York',
+				travelMode: google.maps.DirectionsTravelMode.DRIVING
+			};
+			directionsService.route(request, function(response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay.setDirections(response);
+				}
+			});
+		}
+	</script>
+</body>
+</html>
