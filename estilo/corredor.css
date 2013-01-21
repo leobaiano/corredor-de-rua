@@ -1,0 +1,19 @@
+html { height: 100%; }
+body { height: 100%; margin: 0; padding: 0; }
+#mapa { 
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+.bt {
+	position: absolute;
+	right: 5%;
+	bottom: 5%;
+	z-index: 20;
+}
+#finalizar {
+	display: none;
+}
